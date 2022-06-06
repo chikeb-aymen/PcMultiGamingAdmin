@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-12 grid-margin">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">20 Premier Produits</h4>
+          <div class="table-responsive">
+            
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>
+                    <div class="form-check form-check-muted m-0">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input">
+                      </label>
+                    </div>
+                  </th>
+                  <th> Nom du produit </th>
+                  <th> Prix </th>
+                  <th> Descriptif </th>
+                  <th> Mode de paiement </th>
+                  <th> Disponible </th>
+                  <th> Delete </th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr *ngFor="let product of products">
+                  <td> {{product?.id}} </td>
+                  <td>
+                    <img src="https://pcmultigaming.com/{{product.images.split(',')?.[0]}}" alt="image" />
+                    <span class="pl-2">{{product?.name}}</span>
+                  </td>
+                  <td> {{product?.price}} </td>
+                  <td> {{product?.description?.substring(0,10)}}</td>
+                  <td> * </td>
+                  <td>
+                    <div *ngIf="product.total > 0" class="badge badge-outline-success">En Stock</div>
+                    <div *ngIf="product.total <= 0" class="badge badge-outline-danger">0</div>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-warning btn-icon-text" (click)="removeProduct(product.id,product.name)">
+                      <i class="mdi mdi-delete"></i>
+                     </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div style="text-align: center;margin-top: 50px;">
+              <mat-spinner *ngIf="isLoading" value="75" [color]="color" [mode]="mode" style="display: inline-block;">
+              </mat-spinner>
+            </div>
+
+            <button type="button" class="btn btn-warning btn-icon-text">
+              <a href="/products/{{previousPage}}"><i class="mdi mdi-arrow-left"></i> </a> 
+             </button>
+             
+            <button type="button" class="btn btn-warning btn-icon-text">
+              <a href="/products/{{nextPage}}"><i class="mdi mdi-arrow-right"></i> </a> 
+            </button>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

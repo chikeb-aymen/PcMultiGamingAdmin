@@ -1,0 +1,104 @@
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Add New Product</h4>
+        <p class="card-description"> Basic form elements </p>
+        <form [formGroup]="userForm">
+
+          <div class="form-group">
+            <label for="name">Product Name</label>
+            <input type="text" class="form-control" name="name"  formControlName="name" placeholder="Enter Product Name">
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" name="description" formControlName="description" placeholder="Description">
+          </div>
+
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input type="text" class="form-control" name="price" formControlName="price" placeholder="Price">
+          </div>
+
+          <div class="form-group">
+            <label for="quantite">Quantity</label>
+            <input type="text" class="form-control" name="total" formControlName="total" placeholder="Quantité">
+          </div>
+
+          <div class="form-group">
+            <label for="category">Category</label>
+            <select class="form-control" name="category_id" formControlName="category_id" >
+              <option disabled selected>Select Product Category</option>
+              <option disabled>---Carte Meres---</option>
+              <option value="1">Cartes Mères AMD</option>
+              <option value="2">Cartes Mères INTEL</option>
+
+              <option disabled>---Processeur CPU---</option>
+              <option value="3">CPU AMD </option>
+              <option value="4">CPU INTEL</option>
+
+              <option disabled>---Cartes Graphiques GPU---</option>
+              <option value="5">GPU NVIDIA</option>
+              <option value="6">GPU AMD</option>
+
+              <option disabled>---Alimentation PSU---</option>
+              <option value="7">PSU Standard</option>
+              <option value="8">PSU Bronze</option>
+              <option value="9">PSU Gold</option>
+              <option value="10">PSU Platinium</option>
+
+              <option disabled>---Disque Dur HDD Et SSD---</option>
+              <option value="11">Disque Dur HDD</option>
+              <option value="12">Disque Dur NVMe</option>
+              <option value="13">Disque Dur SSD</option>
+
+              <option disabled>---Barrette De RAM DDR4---</option>
+              <option value="14">RAM Gaming</option>
+              <option value="15">RAM Gaming RGB</option>
+
+              <option disabled>---Refroidisseur Et Ventilateur---</option>
+              <option value="16">Fan Cooling</option>
+              <option value="17">Air Cooling</option>
+              <option value="18">Water Cooling</option>
+
+
+              <option disabled>---Composants PC GAMER---</option>
+              <option value="19">Boitier PC Gamer</option>
+              <option value="20">Moniteur Et Ecran Gamer</option>
+              <option value="21">Chaise Gamer Et Bureau</option>
+              <option value="22">Config PC Gamer AMD</option>
+              <option value="23">Config PC Gamer INTEL  </option>
+              <option value="24">PC Portable Gamer Pro</option>
+              <option value="25">Clavier Gamer</option>
+              <option value="26">Souris Gamer</option>
+              <option value="27">Tapis De Souris</option>
+              <option value="28">Manettes de jeu</option>
+              <option value="29">Webcam streaming</option>
+              <option value="30">Volants Jeux De Course</option>
+              <option value="31">Casques Gamer</option>
+              <option value="32">Accessoires Gaming</option>
+              <option value="33">Micro et Speakers Gamer</option>
+              <option value="34">Réseau et Téléphonique</option>
+              <option value="35">Laptops</option>
+              <option value="36">Pack</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Image upload</label>
+            <input class="form-control" type="file" name="img[]" id="formFile" multiple (change)="onFileChange($event)"  accept="image/*">
+          </div>
+          
+
+          <div class="form-group">
+            <label for="exampleInputCity1">Overview</label>
+            <textarea  class="form-control" name="overview" formControlName="overview" id="" cols="30" rows="10"></textarea>
+          </div>
+
+          <button type="submit" (click)="submit()" class="btn btn-primary mr-2">Ajouter Produit</button>
+          <a href="/add_product" class="btn btn-dark">Cancel</a>
+          
+        </form>
+      </div>
+    </div>
+  </div>
