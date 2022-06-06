@@ -29,6 +29,10 @@ export class ProductService {
     return this.http.post(`${this.apiServeUrl}/api/v1/products/delete/${id}`,[]);
   }
 
+  public updateProduct(id:number,formData:FormData): Observable<any>{
+    return this.http.post(`${this.apiServeUrl}/api/v1/products/update/${id}`,formData);
+  }
+
 
   
   public getAllProduct(page:number): Observable<Product[]>{

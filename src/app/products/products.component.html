@@ -20,7 +20,8 @@
                   <th> Descriptif </th>
                   <th> Mode de paiement </th>
                   <th> Disponible </th>
-                  <th> Delete </th>
+                  <th> Modifié </th>
+                  <th> Supprimer </th>
                 </tr>
               </thead>
 
@@ -37,6 +38,9 @@
                   <td>
                     <div *ngIf="product.total > 0" class="badge badge-outline-success">En Stock</div>
                     <div *ngIf="product.total <= 0" class="badge badge-outline-danger">0</div>
+                  </td>
+                  <td>
+                      <a class="btn btn-warning btn-icon-text" href="/edit_product/{{product.id}}"><i class="mdi mdi-grease-pencil"></i></a>
                   </td>
                   <td>
                     <button type="button" class="btn btn-warning btn-icon-text" (click)="removeProduct(product.id,product.name)">
