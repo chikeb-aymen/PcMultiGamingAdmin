@@ -229,7 +229,7 @@
                   <th> Nom du produit </th>
                   <th> Prix </th>
                   <th> Descriptif </th>
-                  <th> Mode de paiement </th>
+                  <th> Quantité </th>
                   <th> Disponible </th>
                 </tr>
               </thead>
@@ -252,9 +252,10 @@
                   </td>
                   <td> {{product?.price}} </td>
                   <td> {{product?.description?.substring(0,10)}}</td>
-                  <td> * </td>
+                  <td> {{product.total}} </td>
                   <td>
-                    <div class="badge badge-outline-success">En Stock</div>
+                    <div *ngIf="product.total > 0" class="badge badge-outline-success">En Stock</div>
+                    <div *ngIf="product.total <= 0" class="badge badge-outline-danger">0 Produit</div>
                   </td>
                 </tr>
               </tbody>
